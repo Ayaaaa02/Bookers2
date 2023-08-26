@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+  <div class="mx-auto col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 p-3"> 
+<h1>User info</h1>
+<%= render 'layouts/error',obj:@user %>
+
+<%= form_with model: @user do |f| %>
+
+<div class="form">
+  <h6>Name</h6>
+  <%= f.text_field :name,autofocus:true, id:"inputName",placeholder:"名前",class:"form-control" %>
+ </div> 
+ <div class="form">
+  <h6>Image</h6>
+  <%= f.file_field :profile_image,accept: "image/:",class:"form-control-file" %>
+  </div>
+  <div class="form"> 
+  <h6>Introduction</h6>
+  <%= f.text_area :introduction,autofocus:true, id:"inputIntroduction",class:"form-control" %>
+  </div>
+<div class =update-box>
+  <%= f.submit 'Update User',class:"btn btn-secondary" %>
+  </div>
+<% end %>
+ </div>
+</div>
+</div>

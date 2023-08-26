@@ -1,0 +1,50 @@
+<div class="container px-5 px-sm-0 p-3">
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'users/info' ,user:@user %>
+<h2>New book</h2>
+
+<%= form_with model: @book_new do |f| %>
+
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+  
+<div class =create-box>
+  <%= f.submit 'Create Book' %>
+  </div>
+<% end %>
+</div>
+<div class="col-md-8 offset-md-1">
+<h2>Book detail</h2>
+<table class="table">
+  <tr>
+    <td>
+      <%= link_to user_path(@user) do %>
+      <%= image_tag @user.get_profile_image(80,80) %><br>
+      <%= @user.name %>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to book_path do %>
+      <%= @book.title %>
+      <% end %>
+    </td>
+    <td>
+    <%= @book.body %>
+     <td>
+     <% if @book.user == current_user %>
+    <%= link_to "Edit",edit_book_path , class:"btn btn-sm btn-success"%>
+  </td>
+  <td>
+    <%= link_to "Destroy",book_path(@book) ,method: :delete , class:"btn btn-sm btn-danger","data-confirm" => "本当に消しますか？"%>
+  </td>
+  <% end %>
+ </tr> 
+</table>
+</div>
+</div>
+</div>
+</div>

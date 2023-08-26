@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-5 px-sm-0 mx-auto p-3">
+
+<h1>Editing Book</h1>
+<%= render 'layouts/error' ,obj:@book %>
+
+<%= form_with model:@book ,mothod: :patch do |f| %>
+<div class="form-group">
+<h6>Title</h6>
+    <%=f.text_field :title ,class:"form-control"%>
+</div>
+<div class="form-group">
+<h6>Opinion</h6>
+    <%= f.text_area :body,class:"form-control" %>
+</div>
+<div class =update-book-box>
+  <%= f.submit 'Update Book' ,class:"btn btn-success"%>
+  </div>
+  
+  <%end %>
+  
+  <%= link_to "Show" ,book_path %>
+  |
+  <%= link_to "Back" ,books_path %>
+</div>
+</div>
+</div>
